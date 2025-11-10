@@ -1,0 +1,10 @@
+chat.db
+chat.db-journal
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
