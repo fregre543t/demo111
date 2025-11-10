@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'app/routes/app_pages.dart';
+import 'app/routes/app_routes.dart';
+import 'app/services/auth_service.dart';
+import 'app/services/storage_service.dart';
+import 'app/services/api_service.dart';
+import 'app/services/websocket_service.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+  
+  // 初始化服务
+  Get.put(StorageService());
+  Get.put(ApiService());
+  Get.put(WebSocketService());
+  Get.put(AuthService());
+  
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: '聊天应用',
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.SPLASH,
+      getPages: AppPages.routes,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
+      ),
+    );
+  }
+}
