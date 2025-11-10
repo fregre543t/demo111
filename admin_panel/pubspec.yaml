@@ -1,0 +1,39 @@
+name: admin_panel
+description: Admin panel for chat application
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # 状态管理
+  get: ^4.6.6
+  
+  # 网络请求
+  dio: ^5.4.0
+  
+  # 本地存储
+  shared_preferences: ^2.2.2
+  
+  # UI组件
+  cupertino_icons: ^1.0.6
+  flutter_spinkit: ^5.2.0
+  cached_network_image: ^3.3.1
+  
+  # 工具
+  intl: ^0.19.0
+  fl_chart: ^0.66.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,138 @@
+WebSocket聊天应用项目结构
+====================================
+
+项目根目录 (/workspace)
+│
+├── 📁 backend/                      # Go后端服务
+│   ├── 📁 cmd/server/
+│   │   └── 📄 main.go              # 服务器入口
+│   ├── 📁 internal/
+│   │   ├── 📁 handlers/            # API处理器
+│   │   │   ├── 📄 auth.go         # 用户认证（注册/登录）
+│   │   │   ├── 📄 user.go         # 用户管理
+│   │   │   ├── 📄 message.go      # 消息管理
+│   │   │   ├── 📄 websocket.go    # WebSocket处理
+│   │   │   └── 📄 admin.go        # 管理员功能
+│   │   ├── 📁 models/              # 数据模型
+│   │   │   └── 📄 user.go         # User/Message/ChatRoom模型
+│   │   ├── 📁 middleware/          # 中间件
+│   │   │   └── 📄 auth.go         # JWT认证中间件
+│   │   ├── 📁 websocket/           # WebSocket核心
+│   │   │   ├── 📄 hub.go          # 连接管理中心
+│   │   │   └── 📄 client.go       # 客户端连接
+│   │   └── 📁 database/            # 数据库
+│   │       └── 📄 database.go     # 数据库初始化
+│   ├── 📄 go.mod                   # Go依赖管理
+│   ├── 📄 Makefile                 # 构建脚本
+│   ├── 📄 Dockerfile               # Docker配置
+│   └── 📄 README.md                # 后端说明
+│
+├── 📁 chat_client/                  # Flutter聊天客户端
+│   ├── 📁 lib/
+│   │   ├── 📄 main.dart           # 应用入口
+│   │   ├── 📁 controllers/         # GetX控制器
+│   │   │   ├── 📄 auth_controller.dart    # 认证控制
+│   │   │   └── 📄 chat_controller.dart    # 聊天控制
+│   │   ├── 📁 models/              # 数据模型
+│   │   │   ├── 📄 user.dart       # 用户模型
+│   │   │   └── 📄 message.dart    # 消息模型
+│   │   ├── 📁 services/            # 服务层
+│   │   │   ├── 📄 api_service.dart        # HTTP API
+│   │   │   └── 📄 websocket_service.dart  # WebSocket
+│   │   ├── 📁 views/               # 视图层
+│   │   │   ├── 📁 login/          # 登录注册页面
+│   │   │   │   ├── 📄 login_view.dart
+│   │   │   │   └── 📄 register_view.dart
+│   │   │   ├── 📁 home/           # 主页（会话列表）
+│   │   │   │   └── 📄 home_view.dart
+│   │   │   └── 📁 chat/           # 聊天界面
+│   │   │       └── 📄 chat_view.dart
+│   │   └── 📁 routes/              # 路由配置
+│   │       └── 📄 app_routes.dart
+│   ├── 📄 pubspec.yaml             # Flutter依赖
+│   └── 📄 README.md                # 客户端说明
+│
+├── 📁 admin_panel/                  # Flutter管理后台
+│   ├── 📁 lib/
+│   │   ├── 📄 main.dart           # 应用入口
+│   │   ├── 📁 controllers/         # 控制器
+│   │   │   └── 📄 admin_controller.dart
+│   │   ├── 📁 services/            # 服务
+│   │   │   └── 📄 admin_api_service.dart
+│   │   └── 📁 views/               # 视图
+│   │       ├── 📁 login/          # 登录
+│   │       │   └── 📄 admin_login_view.dart
+│   │       ├── 📁 dashboard/      # 仪表板
+│   │       │   └── 📄 dashboard_view.dart
+│   │       ├── 📁 users/          # 用户管理
+│   │       │   └── 📄 users_view.dart
+│   │       └── 📁 messages/       # 消息管理
+│   │           └── 📄 messages_view.dart
+│   ├── 📄 pubspec.yaml             # Flutter依赖
+│   └── 📄 README.md                # 后台说明
+│
+├── 📄 README.md                     # 主项目说明
+├── 📄 QUICK_START.md               # 快速开始指南
+├── 📄 PROJECT_SUMMARY.md           # 项目概览
+├── 📄 API_TEST.md                  # API测试文档
+├── 📄 DEPLOYMENT.md                # 部署指南
+├── 📄 CHANGELOG.md                 # 更新日志
+├── 📄 .gitignore                   # Git忽略文件
+├── 📄 docker-compose.yml           # Docker Compose配置
+├── 📄 start.sh                     # 启动脚本
+└── 📄 stop.sh                      # 停止脚本
+
+====================================
+项目统计
+====================================
+
+📊 代码文件:
+- Go文件: 11个
+- Dart文件: 19个
+- 配置文件: 10+个
+
+📦 主要依赖:
+后端:
+- Gin (HTTP框架)
+- Gorilla WebSocket
+- GORM (ORM)
+- JWT (认证)
+- bcrypt (密码加密)
+
+前端:
+- GetX (状态管理)
+- Dio (HTTP请求)
+- web_socket_channel (WebSocket)
+- shared_preferences (本地存储)
+- cached_network_image (图片缓存)
+
+====================================
+核心功能模块
+====================================
+
+✅ 用户系统
+- 注册/登录
+- JWT认证
+- 个人资料管理
+- 在线状态
+
+✅ 消息系统
+- 实时消息推送
+- 私聊功能
+- 消息持久化
+- 已读/未读状态
+- 会话列表
+
+✅ WebSocket
+- 实时通信
+- 自动重连
+- 心跳检测
+- 在线状态同步
+
+✅ 管理后台
+- 数据统计
+- 用户管理
+- 消息监控
+- 权限控制
+
+====================================

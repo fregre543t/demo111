@@ -1,0 +1,42 @@
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+chat.db
+chat.db-journal
+
+# Flutter
+**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/ios/Flutter/.last_build_id
+**/ios/Pods/
+**/android/.gradle/
+**/android/captures/
+**/android/local.properties
+**/android/key.properties
+**/*.iml
+**/.idea/
+**/.vscode/
+
+# IDE
+.DS_Store
+*.swp
+*.swo
+*~
+
+# 环境变量
+.env
+.env.local
+
+# 日志
+*.log
