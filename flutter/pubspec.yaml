@@ -1,0 +1,38 @@
+name: chat_app
+description: 基于WebSocket的聊天应用
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # GetX状态管理
+  get: ^4.6.6
+  
+  # WebSocket
+  web_socket_channel: ^2.4.0
+  
+  # HTTP请求
+  http: ^1.1.0
+  
+  # 本地存储
+  get_storage: ^2.1.1
+  
+  # UI组件
+  cupertino_icons: ^1.0.6
+  flutter_svg: ^1.1.2
+  
+  # 时间格式化
+  intl: ^0.18.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
