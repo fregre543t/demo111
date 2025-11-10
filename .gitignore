@@ -1,0 +1,10 @@
+# Local Flutter SDK clone
+flutter/
+
+# Flutter build artifacts
+frontend/build/
+frontend/.dart_tool/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.packages
+frontend/.metadata
